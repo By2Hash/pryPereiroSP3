@@ -8,6 +8,7 @@ namespace pryPereiroSP3
         }
 
         int[] vecRepuesto = new int[100];
+        int Indice = 0;
 
 
         private void cmbOrigen_SelectedIndexChanged(object sender, EventArgs e)
@@ -26,10 +27,7 @@ namespace pryPereiroSP3
 
         private void txtPrecio_TextChanged(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void txtPrecio_TextChanged(object sender, EventArgs e)
@@ -40,6 +38,37 @@ namespace pryPereiroSP3
         private void frmGUI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cmbMarca.SelectedIndex = 0;
+            cmbOrigen.SelectedIndex = 0;
+            txtNumRepuesto.Clear();
+            txtNumRepuesto.Clear();
+            txtDescripción.Clear();
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnLimpiarConsulta_Click(object sender, EventArgs e)
+        {
+            cmbMarca.SelectedIndex = 0;
+
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            for(Indice = 0; Indice <= vecRepuesto.Length; Indice++)
+            
+                vecRepuesto[Indice] = Convert.ToInt32(txtNumRepuesto.Text);
+            }
         }
     }
 }

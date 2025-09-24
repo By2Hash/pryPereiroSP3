@@ -44,14 +44,14 @@
             btnCargar = new Button();
             btnLimpiar = new Button();
             pnlConsulta = new Panel();
+            lsbConsulta = new ListBox();
+            rdbImportado = new RadioButton();
+            rdbNacional = new RadioButton();
+            comboBox2 = new ComboBox();
+            label2 = new Label();
             lblConsulta = new Label();
             btnConsultar = new Button();
             btnLimpiarConsulta = new Button();
-            comboBox2 = new ComboBox();
-            label2 = new Label();
-            rdbNacional = new RadioButton();
-            rdbImportado = new RadioButton();
-            lsbConsulta = new ListBox();
             pnlCarga.SuspendLayout();
             pnlConsulta.SuspendLayout();
             SuspendLayout();
@@ -102,6 +102,7 @@
             txtPrecio.Size = new Size(77, 23);
             txtPrecio.TabIndex = 8;
             txtPrecio.TextChanged += txtPrecio_TextChanged;
+            txtPrecio.KeyPress += txtPrecio_KeyPress;
             // 
             // txtNumRepuesto
             // 
@@ -195,6 +196,7 @@
             btnCargar.TabIndex = 2;
             btnCargar.Text = "Cargar";
             btnCargar.UseVisualStyleBackColor = true;
+            btnCargar.Click += btnCargar_Click;
             // 
             // btnLimpiar
             // 
@@ -204,6 +206,7 @@
             btnLimpiar.TabIndex = 3;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // pnlConsulta
             // 
@@ -217,6 +220,57 @@
             pnlConsulta.Name = "pnlConsulta";
             pnlConsulta.Size = new Size(311, 307);
             pnlConsulta.TabIndex = 4;
+            // 
+            // lsbConsulta
+            // 
+            lsbConsulta.FormattingEnabled = true;
+            lsbConsulta.ItemHeight = 15;
+            lsbConsulta.Items.AddRange(new object[] { "." });
+            lsbConsulta.Location = new Point(23, 154);
+            lsbConsulta.Name = "lsbConsulta";
+            lsbConsulta.Size = new Size(263, 139);
+            lsbConsulta.TabIndex = 12;
+            // 
+            // rdbImportado
+            // 
+            rdbImportado.AutoSize = true;
+            rdbImportado.Location = new Point(23, 108);
+            rdbImportado.Name = "rdbImportado";
+            rdbImportado.Size = new Size(81, 19);
+            rdbImportado.TabIndex = 11;
+            rdbImportado.TabStop = true;
+            rdbImportado.Text = "Importado";
+            rdbImportado.UseVisualStyleBackColor = true;
+            // 
+            // rdbNacional
+            // 
+            rdbNacional.AutoSize = true;
+            rdbNacional.Location = new Point(23, 73);
+            rdbNacional.Name = "rdbNacional";
+            rdbNacional.Size = new Size(72, 19);
+            rdbNacional.TabIndex = 10;
+            rdbNacional.TabStop = true;
+            rdbNacional.Text = "Nacional";
+            rdbNacional.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "(P) Peugeot", "(F) Fiat ", "(R) Renault" });
+            comboBox2.Location = new Point(198, 32);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(100, 23);
+            comboBox2.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(26, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 15);
+            label2.TabIndex = 7;
+            label2.Text = "Marca";
             // 
             // lblConsulta
             // 
@@ -244,57 +298,7 @@
             btnLimpiarConsulta.TabIndex = 7;
             btnLimpiarConsulta.Text = "Limpiar";
             btnLimpiarConsulta.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "(P) Peugeot", "(F) Fiat ", "(R) Renault" });
-            comboBox2.Location = new Point(198, 32);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(100, 23);
-            comboBox2.TabIndex = 9;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(26, 35);
-            label2.Name = "label2";
-            label2.Size = new Size(40, 15);
-            label2.TabIndex = 7;
-            label2.Text = "Marca";
-            // 
-            // rdbNacional
-            // 
-            rdbNacional.AutoSize = true;
-            rdbNacional.Location = new Point(23, 73);
-            rdbNacional.Name = "rdbNacional";
-            rdbNacional.Size = new Size(72, 19);
-            rdbNacional.TabIndex = 10;
-            rdbNacional.TabStop = true;
-            rdbNacional.Text = "Nacional";
-            rdbNacional.UseVisualStyleBackColor = true;
-            // 
-            // rdbImportado
-            // 
-            rdbImportado.AutoSize = true;
-            rdbImportado.Location = new Point(23, 108);
-            rdbImportado.Name = "rdbImportado";
-            rdbImportado.Size = new Size(81, 19);
-            rdbImportado.TabIndex = 11;
-            rdbImportado.TabStop = true;
-            rdbImportado.Text = "Importado";
-            rdbImportado.UseVisualStyleBackColor = true;
-            // 
-            // lsbConsulta
-            // 
-            lsbConsulta.FormattingEnabled = true;
-            lsbConsulta.ItemHeight = 15;
-            lsbConsulta.Items.AddRange(new object[] { "." });
-            lsbConsulta.Location = new Point(23, 154);
-            lsbConsulta.Name = "lsbConsulta";
-            lsbConsulta.Size = new Size(263, 139);
-            lsbConsulta.TabIndex = 12;
+            btnLimpiarConsulta.Click += btnLimpiarConsulta_Click;
             // 
             // frmGUI
             // 

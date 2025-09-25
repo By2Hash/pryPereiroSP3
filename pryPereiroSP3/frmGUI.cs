@@ -65,9 +65,16 @@ namespace pryPereiroSP3
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            for(Indice = 0; Indice <= vecRepuesto.Length; Indice++)
-            
+            if ( Indice <= vecRepuesto.Length)
+            {
                 vecRepuesto[Indice] = Convert.ToInt32(txtNumRepuesto.Text);
+                Indice++;
+                txtDescripción.Clear();
+                txtNumRepuesto.Clear(); 
+                txtPrecio.Clear();
+                cmbMarca.SelectedIndex = 0;
+                cmbOrigen.SelectedIndex = 0;
+
             }
         }
     }

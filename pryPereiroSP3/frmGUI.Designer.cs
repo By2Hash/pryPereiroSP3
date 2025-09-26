@@ -80,7 +80,7 @@
             // 
             // txtDescripción
             // 
-            txtDescripción.Location = new Point(266, 185);
+            txtDescripción.Location = new Point(266, 196);
             txtDescripción.MaxLength = 50;
             txtDescripción.Multiline = true;
             txtDescripción.Name = "txtDescripción";
@@ -134,13 +134,14 @@
             txtNumRepuesto.Name = "txtNumRepuesto";
             txtNumRepuesto.Size = new Size(47, 23);
             txtNumRepuesto.TabIndex = 7;
+            txtNumRepuesto.TextChanged += txtNumRepuesto_TextChanged;
             txtNumRepuesto.KeyPress += txtNumRepuesto_KeyPress;
             // 
             // cmbOrigen
             // 
             cmbOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOrigen.FormattingEnabled = true;
-            cmbOrigen.Items.AddRange(new object[] { "N", "I" });
+            cmbOrigen.Items.AddRange(new object[] { "(N) Nacional", "(I) Importado" });
             cmbOrigen.Location = new Point(318, 74);
             cmbOrigen.Name = "cmbOrigen";
             cmbOrigen.Size = new Size(100, 23);
@@ -151,7 +152,7 @@
             // 
             cmbMarca.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMarca.FormattingEnabled = true;
-            cmbMarca.Items.AddRange(new object[] { "P", "F", "R" });
+            cmbMarca.Items.AddRange(new object[] { "(P) Peugeot", "(F) Fiat", "(R) Renault" });
             cmbMarca.Location = new Point(318, 31);
             cmbMarca.Name = "cmbMarca";
             cmbMarca.Size = new Size(100, 23);
@@ -169,7 +170,7 @@
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
-            lblDescripcion.Location = new Point(76, 188);
+            lblDescripcion.Location = new Point(76, 199);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(69, 15);
             lblDescripcion.TabIndex = 3;

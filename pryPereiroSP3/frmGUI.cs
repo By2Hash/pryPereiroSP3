@@ -6,14 +6,19 @@ namespace pryPereiroSP3
         {
             InitializeComponent();
         }
+        struct Repuesto
+        {
+            public string marca; //P , R, F
+            public string origen; // I, N
+            public int numeroRepuesto;
+            public float precio;
+            public string descripcion;
+        }
 
-        int[] vecRepuesto = new int[100];
-        string Descripción;
-        float Precio;
-
+        Repuesto[] vecRepuesto = new Repuesto[100];
         int Indice = 0;
 
-
+        Repuesto cargarRepuestos = new Repuesto();
 
 
 
@@ -53,7 +58,7 @@ namespace pryPereiroSP3
             cmbMarca.SelectedIndex = 0;
             cmbOrigen.SelectedIndex = 0;
             txtNumRepuesto.Clear();
-            txtNumRepuesto.Clear();
+            txtPrecio.Clear();
             txtDescripción.Clear();
         }
 
@@ -69,24 +74,32 @@ namespace pryPereiroSP3
         {
             cmbMarca.SelectedIndex = 0;
             lstConsulta.Items.Clear();
-          
+
 
         }
 
+        
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (Indice <= vecRepuesto.Length)
             {
-                vecRepuesto[Indice] = Convert.ToInt32(txtNumRepuesto.Text);
-                Descripción = txtDescripción.Text;
-                Precio = Convert.ToInt32(txtPrecio.Text);
+                cargarRepuestos.marca = cmbMarca.Text;
+                cargarRepuestos.origen = cmbOrigen.Text;
+                cargarRepuestos.numeroRepuesto = txtNumRepuesto.TextLength;
+                cargarRepuestos.precio = Convert.ToInt32(txtPrecio.Text);
+                cargarRepuestos.descripcion = txtDescripción.Text;
+                vecRepuesto[Indice] = cargarRepuestos;
+                
+
                 Indice++;
+
+
                 txtDescripción.Clear();
                 txtNumRepuesto.Clear();
                 txtPrecio.Clear();
                 cmbMarca.SelectedIndex = 0;
                 cmbOrigen.SelectedIndex = 0;
-                
+
 
             }
             else
@@ -100,14 +113,19 @@ namespace pryPereiroSP3
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            lstConsulta.Items.Add(Indice + " - - - " + Descripción + " - - - " + "$" +Precio);
-            
+            lstConsulta.Items.Add(cargarRepuestos.marca + " - - - " + cargarRepuestos.origen + " - - -" + cargarRepuestos.numeroRepuesto + " - - - "+ cargarRepuestos.precio + " - - - " + cargarRepuestos.descripcion);
+
 
 
 
         }
 
         private void lstConsulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumRepuesto_TextChanged(object sender, EventArgs e)
         {
 
         }

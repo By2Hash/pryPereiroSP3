@@ -11,6 +11,10 @@ namespace pryPereiroSP3
         int Indice = 0;
 
 
+
+
+
+
         private void cmbOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -29,6 +33,7 @@ namespace pryPereiroSP3
         {
 
         }
+
 
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
@@ -65,17 +70,36 @@ namespace pryPereiroSP3
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            if ( Indice <= vecRepuesto.Length)
+            if (Indice <= vecRepuesto.Length)
             {
                 vecRepuesto[Indice] = Convert.ToInt32(txtNumRepuesto.Text);
                 Indice++;
                 txtDescripción.Clear();
-                txtNumRepuesto.Clear(); 
+                txtNumRepuesto.Clear();
                 txtPrecio.Clear();
                 cmbMarca.SelectedIndex = 0;
                 cmbOrigen.SelectedIndex = 0;
 
             }
+            else
+            {
+                MessageBox.Show("Ya no se puede cargar mas repuestos");
+            }
+        }
+
+        char Marca;
+        char Origen;
+        public int Numero;
+        public string Descripcion;
+        public float Precio;
+    
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            Marca = cmbMarca.SelectedIndex.ToString()[0];
+            Origen = cmbOrigen.SelectedIndex.ToString()[0];
+
+
         }
     }
 }

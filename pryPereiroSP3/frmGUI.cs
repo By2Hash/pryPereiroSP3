@@ -8,6 +8,9 @@ namespace pryPereiroSP3
         }
 
         int[] vecRepuesto = new int[100];
+        string Descripción;
+        float Precio;
+
         int Indice = 0;
 
 
@@ -65,6 +68,8 @@ namespace pryPereiroSP3
         private void btnLimpiarConsulta_Click(object sender, EventArgs e)
         {
             cmbMarca.SelectedIndex = 0;
+            lstConsulta.Items.Clear();
+          
 
         }
 
@@ -73,12 +78,15 @@ namespace pryPereiroSP3
             if (Indice <= vecRepuesto.Length)
             {
                 vecRepuesto[Indice] = Convert.ToInt32(txtNumRepuesto.Text);
+                Descripción = txtDescripción.Text;
+                Precio = Convert.ToInt32(txtPrecio.Text);
                 Indice++;
                 txtDescripción.Clear();
                 txtNumRepuesto.Clear();
                 txtPrecio.Clear();
                 cmbMarca.SelectedIndex = 0;
                 cmbOrigen.SelectedIndex = 0;
+                
 
             }
             else
@@ -87,18 +95,20 @@ namespace pryPereiroSP3
             }
         }
 
-        char Marca;
-        char Origen;
-        public int Numero;
-        public string Descripcion;
-        public float Precio;
-    
+
+
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Marca = cmbMarca.SelectedIndex.ToString()[0];
-            Origen = cmbOrigen.SelectedIndex.ToString()[0];
+            lstConsulta.Items.Add(Indice + " - - - " + Descripción + " - - - " + "$" +Precio);
+            
 
+
+
+        }
+
+        private void lstConsulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
